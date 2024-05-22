@@ -15,10 +15,44 @@ class MODMiddleware extends MODbase
         parent::__construct($pParam);
     }
 
-    function loadServices(){
+    function loadCbteC31Services(){
         //Definicion de variables para ejecucion del procedimiento
         $this->procedimiento='sigep.ft_middleware_ime';
-        $this->transaccion='SIG_SERVICE_LOAD';
+        $this->transaccion='SIG_SERVICE_C31_LOAD';
+        $this->tipo_procedimiento='IME';
+
+        //Define los parametros para la funcion
+        $this->setParametro('document','document','jsonb');
+
+        //Ejecuta la instruccion
+        $this->armarConsulta();//echo $this->consulta;exit;
+        $this->ejecutarConsulta();
+
+        //Devuelve la respuesta
+        return $this->respuesta;
+    }
+
+    function loadCbteC21Services(){
+        //Definicion de variables para ejecucion del procedimiento
+        $this->procedimiento='sigep.ft_middleware_ime';
+        $this->transaccion='SIG_SERVICE_C21_LOAD';
+        $this->tipo_procedimiento='IME';
+
+        //Define los parametros para la funcion
+        $this->setParametro('document','document','jsonb');
+
+        //Ejecuta la instruccion
+        $this->armarConsulta();//echo $this->consulta;exit;
+        $this->ejecutarConsulta();
+
+        //Devuelve la respuesta
+        return $this->respuesta;
+    }
+
+    function loadBenefServices(){
+        //Definicion de variables para ejecucion del procedimiento
+        $this->procedimiento='sigep.ft_middleware_ime';
+        $this->transaccion='SIG_BENEF_LOAD';
         $this->tipo_procedimiento='IME';
 
         //Define los parametros para la funcion

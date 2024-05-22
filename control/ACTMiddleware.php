@@ -9,9 +9,21 @@
 
 class ACTMiddleware extends ACTbase
 {
-    function loadServices(){
+    function loadCbteC31Services(){
         $this->objFunc=$this->create('MODMiddleware');
-        $this->res=$this->objFunc->loadServices($this->objParam);
+        $this->res=$this->objFunc->loadCbteC31Services($this->objParam);
+        $this->res->imprimirRespuesta($this->res->generarJson());
+    }
+
+    function loadCbteC21Services(){
+        $this->objFunc=$this->create('MODMiddleware');
+        $this->res=$this->objFunc->loadCbteC21Services($this->objParam);
+        $this->res->imprimirRespuesta($this->res->generarJson());
+    }
+
+    function loadBenefServices(){
+        $this->objFunc=$this->create('MODMiddleware');
+        $this->res=$this->objFunc->loadBenefServices($this->objParam);
         $this->res->imprimirRespuesta($this->res->generarJson());
     }
 
